@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -51,8 +51,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-//            'register_email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'register_password' => ['required', 'string', 'min:8', 'confirmed'],
+            'register_email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'register_password' => ['required_with:register_password_confirmation', 'string', 'min:8', 'confirmed'],
+            'register_password_confirmation' => ['required_with:register_password', 'same:register_password'],
         ]);
     }
 
@@ -64,11 +65,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'first_name' => $data['fname'],
-            'last_name' => $data['lname'],
-            'email' => $data['register_email'],
-            'password' => Hash::make($data['register_password']),
-        ]);
+        //for user birthday
+        if($data['birthpiker_birth']['year'] != 0 || $data['birthpiker_birth']['month'] != 0 || $data['birthpiker_birth']['day'] !=0)
+        {
+            $birthday = $data['birthpiker_birth']['year'] . '-' . $data['birthpiker_birth']['month'] . '-' . $data['birthpiker_birth']['day'];
+            return User::create([
+                'first_name' => $data['fname'],
+                'last_name' => $data['lname'],
+                'gender' => $data['gender'],
+                'birthday' => date('Y-m-d', strtotime($birthday)),
+                'email' => $data['register_email'],
+                'password' => Hash::make($data['register_password']),
+            ]);
+        }
+        else
+        {
+            return User::create([
+                'first_name' => $data['fname'],
+                'last_name' => $data['lname'],
+                'gender' => $data['gender'],
+                'email' => $data['register_email'],
+                'password' => Hash::make($data['register_password']),
+            ]);
+        }
     }
 }

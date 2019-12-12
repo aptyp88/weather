@@ -37026,10 +37026,13 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/**
+ * init birthday picker register page
+ */
 $(document).ready(function () {
   $("#birth-piker").birthdayPicker({
     maxAge: 100,
-    minAge: 0,
+    minAge: 10,
     dateFormat: "littleEndian",
     monthFormat: "number",
     placeholder: true,

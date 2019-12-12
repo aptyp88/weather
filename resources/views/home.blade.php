@@ -7,6 +7,13 @@
         <h2 class="text-center mt-5 display-3">Weather parser</h2>
         <br>
         <!-- Nav tabs -->
+        @auth
+            <h4>auth</h4>
+        @endauth
+
+        @guest
+            <h4>guest</h4>
+        @endguest
 
 
         <div class="row d-flex justify-content-center auth-tabs mb-5">
@@ -28,8 +35,8 @@
                         <label for="email" class="col-md-4 col-form-label text-md-right required-star">{{ __('E-Mail Address') }}</label>
 
                         <div class="col-md-6">
-                            <input type="email" id="email" class="form-control @error('login_email') is-invalid @enderror" name="login_email" value="{{ old('login_email') }}" required autocomplete="email" autofocus data-check="login">
-                            @error('login_email')
+                            <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus data-check="login">
+                            @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -41,8 +48,8 @@
                         <label for="login-password" class="col-md-4 col-form-label text-md-right required-star">{{ __('Password') }}</label>
 
                         <div class="col-md-6">
-                            <input type="password" id="login-password" class="form-control @error('login_password') is-invalid @enderror" name="login_password" required autocomplete="current-password" data-check="login">
-                            @error('login_password')
+                            <input type="password" id="login-password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" data-check="login">
+                            @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -126,8 +133,8 @@
                         <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
                         <div class="col-md-6">
-                            <select class="form-control" id="gender">
-                                <option>Choose gender...</option>
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="">Choose gender...</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                             </select>
@@ -160,7 +167,7 @@
                         <label for="password-confirm" class="col-md-4 col-form-label text-md-right required-star">{{ __('Confirm Password') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" data-check="register">
+                            <input id="password-confirm" type="password" class="form-control" name="register_password_confirmation" required autocomplete="new-password" data-check="register">
                         </div>
                     </div>
 

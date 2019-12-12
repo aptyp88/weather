@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name', 80);
             $table->string('email', 80)->unique();
             $table->tinyInteger('gender')->nullable();
-            $table->date('birthday')->nullable();
+            $table->string('birthday', 20)->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
