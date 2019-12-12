@@ -8,6 +8,6 @@ $(document).ready(function () {
         defaultDate: false,
         sizeClass: "form-control px-0",
         fieldSetClass: 'd-flex justify-content-between',
-        selectWrapperClass:''
+        selectWrapperClass:'col-4'
     });
 });

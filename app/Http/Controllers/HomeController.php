@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('auth');
+        if(!\Auth()->user())
+            return view('auth');
+        else
+            return redirect()->back();
     }
 }

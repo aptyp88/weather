@@ -37008,6 +37008,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./birthaday-picker-init */ "./resources/js/birthaday-picker-init.js");
 
+$(document).ready(function () {
+  if ($('.is-invalid').data('check') == 'register') {
+    $('#login').removeClass('active show');
+    $('a[href$="#login"]').removeClass('active');
+    $('#register').addClass('active show');
+    $('a[href$="#register"]').addClass('active');
+  }
+});
+
 /***/ }),
 
 /***/ "./resources/js/birthaday-picker-init.js":
@@ -37027,7 +37036,7 @@ $(document).ready(function () {
     defaultDate: false,
     sizeClass: "form-control px-0",
     fieldSetClass: 'd-flex justify-content-between',
-    selectWrapperClass: ''
+    selectWrapperClass: 'col-4'
   });
 });
 

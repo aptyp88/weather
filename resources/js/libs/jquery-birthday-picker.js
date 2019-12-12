@@ -34,9 +34,9 @@ $(function ($)
 
         // Create the html picker skeleton
         var $fieldset = $("<div class='birthdayPicker " + options.fieldSetClass + "'></div>"),
-            $yearWrapper = $("<div class='" + options.selectWrapperClass +  "'></div>"),
+            $yearWrapper = $("<div class='pr-0 " + options.selectWrapperClass +  "'></div>"),
             $monthWrapper = $("<div class='" + options.selectWrapperClass +  "'></div>"),
-            $dayWrapper = $("<div class='" + options.selectWrapperClass +  "'></div>"),
+            $dayWrapper = $("<div class='pl-0 " + options.selectWrapperClass +  "'></div>"),
             $year = $("<select class='birthYear "+options.sizeClass+"' name='"+parentId+"_birth[year]'></select>"),
             $month = $("<select class='birthMonth "+options.sizeClass+"' name='"+parentId+"_birth[month]'></select>"),
             $day = $("<select class='birthDate "+options.sizeClass+"' name='"+parentId+"_birth[day]'></select>")
