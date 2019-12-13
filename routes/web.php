@@ -11,10 +11,11 @@
 |
 */
 
-Route::view('/', 'home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/weather', 'WeatherController@index')->name('weather');
 
-Route::post('login', 'Auth\LoginController@login');
-Route::post('register', 'Auth\RegisterController@register');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout');
 
 //Auth::routes();

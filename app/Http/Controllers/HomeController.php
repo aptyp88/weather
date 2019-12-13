@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -26,6 +26,6 @@ class HomeController extends Controller
         if(!\Auth()->user())
             return view('home');
         else
-            return redirect('http://www.google.com');
+            return redirect('weather');
     }
 }
