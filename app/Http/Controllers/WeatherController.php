@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use PhpQuery\PhpQuery;
 
 class WeatherController extends Controller
 {
@@ -14,30 +15,19 @@ class WeatherController extends Controller
 
     public function index()
     {
-//        $userAgent = 'Mozilla/5.0 (Windows NT 10.0)'
-//            . ' AppleWebKit/537.36 (KHTML, like Gecko)'
-//            . ' Chrome/48.0.2564.97'
-//            . ' Safari/537.36';
-//        $headers = array('User-Agent' => $userAgent);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://www.gismeteo.ua/weather-zaporizhia-5093/');
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        $res = curl_exec($ch);
+        curl_close($ch);
 
-        $client = new Client();
-        $request = $client->request('GET', 'https://www.gismeteo.ua/weather-zaporizhia-5093/', [
-            'headers' => [
-                'content-type' => 'text/html; charset=utf-8',
-                'content-encoding' => 'gzip',
-                'User-Agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Mobile Safari/537.36',
-                'accept-encoding' => 'gzip',
-                'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-            ]
-        ]);
-        $html = $request->getBody()->getContents();
-        $dom = HtmlDomParser::str_get_html($html);
-        dd($dom);
-//        $client = new Client();
-//
-//        $request = $client->get('http://www.gismeteo.ua/weather-zaporizhia-5093/');
-//        $response = $request->getBody()->getContents();
-//        dd($response);
-//        return view('weather');
+        //queries
+        $doc = new phpQuery();
+        $doc->load_str($res);
+        $t = $doc->query('time')[0]->textContent;
+        dd($t);
+        return view('weather');
     }
 }
