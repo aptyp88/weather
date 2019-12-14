@@ -6,15 +6,6 @@
     <div class="container mb-5">
         <h2 class="text-center mt-5 display-3">Weather parser</h2>
         <br>
-        <!-- Nav tabs -->
-        @auth
-            <h4>auth</h4>
-        @endauth
-
-        @guest
-            <h4>guest</h4>
-        @endguest
-
 
         <div class="row d-flex justify-content-center auth-tabs mb-5">
             <ul class="nav nav-tabs" role="tablist">

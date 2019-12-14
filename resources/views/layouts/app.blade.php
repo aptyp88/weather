@@ -28,7 +28,9 @@
 </head>
 <body>
 
-{{--@include('layouts.header')--}}
+
+@include('layouts.header')
+
 <div class="wrap-content">
     @yield('content')
 </div>

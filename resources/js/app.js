@@ -1,5 +1,7 @@
 require('./bootstrap');
-require('./birthaday-picker-init');
+
+if(window.location.pathname == '/')
+    require('./birthaday-picker-init');
 
 $(document).ready(function(){
    if($('.is-invalid').data('check') == 'register')
