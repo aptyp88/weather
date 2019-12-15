@@ -4,15 +4,15 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Weather<span class="sr-only">(current)</span></a>
+                <li class="nav-item" id="weather">
+                    <a class="nav-link" href="{{ url('weather') }}">Weather</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact us</a>
+                <li class="nav-item" id="contact-us">
+                    <a class="nav-link" href="{{ url('contact-us') }}">Contact us</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="comments">
                     <a class="nav-link" href="#">Comments</a>
                 </li>
                 <li class="nav-item dropdown">

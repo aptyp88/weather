@@ -17,6 +17,7 @@ Route::get('/weather', 'WeatherController@index')->name('weather');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout');
+Route::get('contact-us', 'ContactUsController@index');
 
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');

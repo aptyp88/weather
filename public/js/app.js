@@ -37004,16 +37004,31 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require only home page
+
 
 if (window.location.pathname == '/') __webpack_require__(/*! ./birthaday-picker-init */ "./resources/js/birthaday-picker-init.js");
 $(document).ready(function () {
+  /*
+  home page tabs css change css class
+   */
   if ($('.is-invalid').data('check') == 'register') {
     $('#login').removeClass('active show');
     $('a[href$="#login"]').removeClass('active');
     $('#register').addClass('active show');
     $('a[href$="#register"]').addClass('active');
   }
+  /*
+  bootstrap navbar change class active
+   */
+
+
+  var url = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+  $('.navbar-nav li').each(function () {
+    if ($(this).attr('id') === url || $(this).attr('id') === '') {
+      $(this).addClass('active');
+    }
+  });
 });
 
 /***/ }),
