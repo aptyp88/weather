@@ -18,6 +18,5 @@ Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('register', 'Auth\RegisterController@register')->name('register');
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('contact-us', 'ContactUsController@index');
+Route::post('/contact-us/store', 'ContactUsController@store');
 
-//Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactUsRequest;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -14,5 +15,10 @@ class ContactUsController extends Controller
     public function index()
     {
         return view('contact-us');
+    }
+
+    public function store(ContactUsRequest $request)
+    {
+        dd($request);
     }
 }

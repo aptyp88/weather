@@ -1,8 +1,11 @@
 require('./bootstrap');
 
+require('./ajax-contact-us');
+
 //require only home page
 if(window.location.pathname == '/')
     require('./birthaday-picker-init');
+require('./ajax-contact-us');
 
 $(document).ready(function(){
 

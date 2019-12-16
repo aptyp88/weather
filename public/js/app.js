@@ -36997,6 +36997,77 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/ajax-contact-us.js":
+/*!*****************************************!*\
+  !*** ./resources/js/ajax-contact-us.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('#btn-contact-us').on('click', function () {
+    var name = $('#contact-name').val();
+    var email = $('#contact-email').val();
+    var msg = $('#contact-msg').val();
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      method: 'POST',
+      url: '/contact-us/store',
+      data: {
+        email: email,
+        name: name,
+        message: msg
+      },
+      beforeSend: function beforeSend() {
+        $('#loader-wrapper').show();
+      },
+      success: function success(data) {
+        console.log(data);
+        $('.invalid-feedback').remove();
+        $('.alert-success').remove();
+        $('input[name="email"]').val('');
+        $('input[name="name"]').val('');
+        $('#contact-msg').val('');
+        $('#btn-contact-us').attr('disabled', 'true');
+        $('.success').append('<div class="alert alert-success mb-3" style="width: 70%;margin: 0 auto">Email sent successfuly</div>');
+      },
+      complete: function complete() {
+        $('#loader-wrapper').hide();
+      },
+      error: function error(err, errorType, exception) {
+        $.each(err.responseJSON, function (indexm, value) {
+          console.log(value);
+          $('.invalid-feedback').remove();
+          $('.alert-success').remove();
+
+          if (value.email) {
+            $('.has-email').append('<span class="invalid-feedback" role="alert" style="display: block"><strong>' + value.email + '</strong></span>');
+          }
+
+          if (value.name) {
+            $('.has-name').append('<span class="invalid-feedback" role="alert" style="display: block"><strong>' + value.name + '</strong></span>');
+          }
+
+          if (value.message) {
+            $('.has-message').append('<span class="invalid-feedback" role="alert" style="display: block"><strong>' + value.message + '</strong></span>');
+          }
+        });
+      }
+    });
+  });
+  /**
+   *  Disabling/enabling submit button
+   */
+
+  $('#contact-name, #contact-email, #contact-msg').on('input', function () {
+    if ($('#contact-name').val().length >= 1 && $('#contact-email').val().length >= 1 && $('#contact-msg').val().length >= 1) $('#btn-contact-us').prop('disabled', false);else $('#btn-contact-us').attr('disabled', 'disabled');
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -37004,10 +37075,15 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require only home page
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./ajax-contact-us */ "./resources/js/ajax-contact-us.js"); //require only home page
 
 
 if (window.location.pathname == '/') __webpack_require__(/*! ./birthaday-picker-init */ "./resources/js/birthaday-picker-init.js");
+
+__webpack_require__(/*! ./ajax-contact-us */ "./resources/js/ajax-contact-us.js");
+
 $(document).ready(function () {
   /*
   home page tabs css change css class
