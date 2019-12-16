@@ -11405,8 +11405,8 @@ ol {
   background-color: #eba134;
 }
 
-.tab-content .form-group .btn:focus {
-  background-color: #ce800f;
+.tab-content .form-group .btn:hover {
+  background-color: #ce6000;
   outline: none;
   box-shadow: none;
 }
@@ -11478,6 +11478,28 @@ ol {
 
 .img {
   margin: 0 auto;
+}
+
+#contact-submit {
+  background-color: #eba134;
+  border: none;
+}
+
+#contact-submit:active {
+  border: none;
+  background-color: #eba134;
+}
+
+#contact-submit:hover {
+  background-color: #ce6000;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-group .form-control:focus {
+  overflow: hidden;
+  box-shadow: none;
+  border-color: #eba134;
 }
 
 body {
