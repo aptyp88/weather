@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
-use Illuminate\Http\Request;
+use App\Services\ContactUsService;
 
 class ContactUsController extends Controller
 {
@@ -19,6 +19,6 @@ class ContactUsController extends Controller
 
     public function store(ContactUsRequest $request)
     {
-        dd($request);
+        ContactUsService::store($request);
     }
 }

@@ -15,14 +15,14 @@
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right required-star" for="contact-name">Name</label>
                     <div class="col-md-6 has-name">
-                        <input type="text" class="form-control" id="contact-name" aria-describedby="emailHelp" name="name">
+                        <input type="text" class="form-control" id="contact-name" aria-describedby="emailHelp" name="name" value="{{ auth()->user()->first_name }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right required-star" for="contact-email">Email</label>
                     <div class="col-md-6 has-email">
-                        <input type="email" class="form-control" id="contact-email" name="email">
+                        <input type="email" class="form-control" id="contact-email" name="email" value="{{ auth()->user()->email }}">
                     </div>
                 </div>
 
