@@ -65,12 +65,12 @@
 
             <div class="row mt-5 text-center">
                 @for($w = 0, $i = 3, $temp = 6, $time = 2; $i < 11; $i++, $temp++, $w++, ($time += 3))
-                    <div class="col-3 mb-4 py-3">
+                    <div class="col-3 mb-4 py-3" data-toggle='tooltip' data-placement='top' title="{{ $tooltips[$i] }}">
                         <div class="col mb-2">
                             <span><i class="fas fa-clock"></i> {{ $time }}</span><sup>00</sup>
                         </div>
                         <div class="col mb-2">
-                            <div style='width:55px; height:36px; margin: 0 auto;' data-toggle='tooltip' data-placement='top' title="{{ $tooltips[$i] }}">{!! $imgs[$i] !!}</div>
+                            <div style='width:55px; height:36px; margin: 0 auto;' >{!! $imgs[$i] !!}</div>
                         </div>
                         <div class="col mb-2">
                             <div class="row">

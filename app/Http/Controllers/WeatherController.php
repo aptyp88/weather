@@ -51,7 +51,5 @@ class WeatherController extends Controller
         $imgs = explode('</svg>', $svg_file_new);
 
         return view('weather', compact( 'doc', 'tooltips', 'temperatures', 'wind', 'imgs', 'precipitation'));
-
     }
-
 }
