@@ -11395,6 +11395,91 @@ ol {
   border-color: #eba134;
 }
 
+.tab-content .form-group .btn {
+  background-color: #eba134;
+  border: none;
+}
+
+.tab-content .form-group .btn:active {
+  border: none;
+  background-color: #eba134;
+}
+
+.tab-content .form-group .btn:focus {
+  background-color: #ce800f;
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar {
+  background-color: #f2f2f2;
+}
+
+.navbar .navbar-toggler {
+  margin: 0 auto;
+}
+
+.navbar .navbar-nav .nav-item {
+  font-size: 1.2rem;
+}
+
+.navbar .navbar-nav .active a {
+  color: #eb3434 !important;
+  font-weight: bold;
+}
+
+.navbar .navbar-nav .show {
+  font-weight: bold;
+}
+
+.navbar .dropdown {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar .dropdown .dropdown-toggle:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar .dropdown .dropdown-menu:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar .dropdown .dropdown-menu .dropdown-item {
+  background-color: #fff;
+}
+
+.navbar .dropdown .dropdown-menu .dropdown-item:active {
+  color: #212529;
+  background-color: #fff;
+}
+
+.navbar .dropdown .dropdown-menu .dropdown-item:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #fff;
+}
+
+.now,
+.today,
+.tomorrow {
+  background-color: #fff;
+}
+
+.fa-temperature-low {
+  color: red;
+}
+
+.fa-wind {
+  color: #4467ff;
+}
+
+.img {
+  margin: 0 auto;
+}
+
 body {
   font-family: Roboto, sans-serif;
   background: #f2f2f2;

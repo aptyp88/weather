@@ -9,9 +9,13 @@
 
 @import 'home.scss';
 
+@import '_header.scss';
+
+@import 'weather';
+
 body{
   font-family: Roboto, sans-serif;
-  background: #f2f2f2;
+  background: $bg;
 }
 
 a{

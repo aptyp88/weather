@@ -39,5 +39,18 @@
         border-color: $orange;
       }
     }
+    .btn{
+      background-color: $orange;
+      border: none;
+      &:active{
+        border: none;
+        background-color: $orange;
+      }
+      &:focus{
+        background-color: $hover-orange;
+        outline: none;
+        box-shadow: none;
+      }
+    }
   }
 }

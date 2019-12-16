@@ -25,11 +25,10 @@ $(document).ready(function(){
     let url = window.location.href.substr( window.location.href.lastIndexOf( '/' ) + 1 );
     $('.navbar-nav li' ).each( function ()
     {
-        if($( this ).attr( 'id' ) === url || $( this ).attr( 'id' ) === '')
+        if($(this).attr( 'id' ) === url || $( this ).attr( 'id' ) === '')
         {
             $(this).addClass('active');
         }
     });
 
 });
-
