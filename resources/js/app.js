@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 require('./ajax-contact-us');
+require('./ajax-comments');
 
 //require only home page
 if(window.location.pathname == '/')
@@ -8,6 +9,8 @@ if(window.location.pathname == '/')
 require('./ajax-contact-us');
 
 $(document).ready(function(){
+
+    $('#loader-wrapper').hide();
 
     /*
     home page tabs css change css class

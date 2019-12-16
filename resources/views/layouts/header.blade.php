@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item" id="weather">
-                    <a class="nav-link" href="{{ url('weather') }}">Weather</a>
+                    <a class="nav-link" href="{{ route('weather') }}">Weather</a>
                 </li>
                 <li class="nav-item" id="contact-us">
-                    <a class="nav-link" href="{{ url('contact-us') }}">Contact us</a>
+                    <a class="nav-link" href="{{ route('contact-us') }}">Contact us</a>
                 </li>
                 <li class="nav-item" id="comments">
-                    <a class="nav-link" href="#">Comments</a>
+                    <a class="nav-link" href="{{ route('comments') }}">Comments</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

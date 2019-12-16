@@ -4,11 +4,7 @@
 
     <section>
         <div class="container">
-            <h1 class="text-center display-4 mb-5 success">Contact us</h1>
-
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+            <h1 class="text-center display-4 mb-5">Contact us</h1>
 
             <form action="{{ url('/contact-us/store') }}">
                 @csrf
@@ -28,7 +24,7 @@
 
                 <div class="form-group row">
                     <label class="col-md-4 col-form-label text-md-right required-star" for="contact-msg">Message</label>
-                    <div class="col-md-6 has-message">
+                    <div class="col-md-6 has-message success">
                         <textarea class="form-control" id="contact-msg" rows="4" name="message"></textarea>
                     </div>
                 </div>
@@ -39,9 +35,9 @@
                     </div>
                 </div>
 
-                {{--<div id="loader-wrapper">--}}
-                    {{--<div id="loader"></div>--}}
-                {{--</div>--}}
+                <div id="loader-wrapper">
+                    <div id="loader"></div>
+                </div>
             </form>
         </div>
     </section>

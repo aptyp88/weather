@@ -1,0 +1,26 @@
+#all-comments{
+  .show-comment{
+    .commentator{
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .comment-date{
+      font-size: .7rem;
+      color: #54544e;
+    }
+  }
+}
+
+.more-comments{
+  background-color: $orange;
+  border: none;
+  &:active{
+    border: none;
+    background-color: $orange;
+  }
+  &:hover{
+    background-color: $hover-orange;
+    outline: none;
+    box-shadow: none;
+  }
+}

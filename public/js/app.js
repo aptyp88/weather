@@ -36997,6 +36997,88 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/ajax-comments.js":
+/*!***************************************!*\
+  !*** ./resources/js/ajax-comments.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    method: 'POST',
+    url: '/comments/show',
+    data: {},
+    beforeSend: function beforeSend() {
+      $('#loader-wrapper').show();
+    },
+    success: function success(data) {
+      console.log(data);
+
+      if (data.html == '') {
+        $('#all-comments').append('<p style="text-align: center; color:#313e4c;">There are no comments yet.</p>');
+        $('.more-comments').remove();
+      }
+
+      $('#all-comments').append(data.html);
+
+      if (data.lastPage == data.currentPage) {
+        $('.more-comments').remove();
+      } else {
+        $('#all-comments').append('<input type="hidden" id="pagination" data-current-page="' + data.currentPage + '">');
+      }
+    },
+    complete: function complete() {
+      $('#loader-wrapper').hide();
+    },
+    error: function error(err, errorType, exception) {
+      $.each(err.responseJSON, function (indexm, value) {
+        console.log(err);
+      });
+    }
+  });
+  $('.more-comments').on('click', function () {
+    var currentPage = $('#pagination').data('current-page');
+    console.log(currentPage);
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      method: 'POST',
+      url: '/show-more-comments',
+      data: {
+        currentPage: currentPage
+      },
+      beforeSend: function beforeSend() {
+        $('#loader-wrapper').show();
+      },
+      success: function success(data) {
+        console.log(data);
+        $('#all-comments').append(data.html);
+
+        if (data.lastPage == data.currentPage) {
+          console.log(true);
+          $('.more-comments').remove();
+        } else {
+          $('#pagination').remove();
+          $('#all-comments').append('<input type="hidden" id="pagination" data-current-page="' + data.currentPage + '">');
+        }
+      },
+      complete: function complete() {
+        $('#loader-wrapper').hide();
+      },
+      error: function error(err, errorType, exception) {
+        console.log(err);
+      }
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/ajax-contact-us.js":
 /*!*****************************************!*\
   !*** ./resources/js/ajax-contact-us.js ***!
@@ -37031,7 +37113,7 @@ $(document).ready(function () {
         $('input[name="name"]').val('');
         $('#contact-msg').val('');
         $('#btn-contact-us').attr('disabled', 'true');
-        $('.success').append('<div class="alert alert-success mb-3" style="width: 70%;margin: 0 auto">Email sent successfuly</div>');
+        $('.success').append('<div class="alert alert-success mt-3 text-center" style="width: 70%;margin: 0 auto">Email sent successfuly</div>');
       },
       complete: function complete() {
         $('#loader-wrapper').hide();
@@ -37077,7 +37159,9 @@ $(document).ready(function () {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./ajax-contact-us */ "./resources/js/ajax-contact-us.js"); //require only home page
+__webpack_require__(/*! ./ajax-contact-us */ "./resources/js/ajax-contact-us.js");
+
+__webpack_require__(/*! ./ajax-comments */ "./resources/js/ajax-comments.js"); //require only home page
 
 
 if (window.location.pathname == '/') __webpack_require__(/*! ./birthaday-picker-init */ "./resources/js/birthaday-picker-init.js");
@@ -37085,9 +37169,11 @@ if (window.location.pathname == '/') __webpack_require__(/*! ./birthaday-picker-
 __webpack_require__(/*! ./ajax-contact-us */ "./resources/js/ajax-contact-us.js");
 
 $(document).ready(function () {
+  $('#loader-wrapper').hide();
   /*
   home page tabs css change css class
    */
+
   if ($('.is-invalid').data('check') == 'register') {
     $('#login').removeClass('active show');
     $('a[href$="#login"]').removeClass('active');

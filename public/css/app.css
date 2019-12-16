@@ -11674,6 +11674,32 @@ ol {
   transition: all 0.3s 1s ease-out;
 }
 
+#all-comments .show-comment .commentator {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#all-comments .show-comment .comment-date {
+  font-size: 0.7rem;
+  color: #54544e;
+}
+
+.more-comments {
+  background-color: #eba134;
+  border: none;
+}
+
+.more-comments:active {
+  border: none;
+  background-color: #eba134;
+}
+
+.more-comments:hover {
+  background-color: #ce6000;
+  outline: none;
+  box-shadow: none;
+}
+
 body {
   font-family: Roboto, sans-serif;
   background: #f2f2f2;

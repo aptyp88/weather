@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class ContactUs extends Model
 {
@@ -28,6 +29,18 @@ class ContactUs extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACCESSORS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getCreateDateAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d F, Y H:m:s');
     }
 }

@@ -26,7 +26,7 @@ $(document).ready(function () {
                 $('input[name="name"]').val('');
                 $('#contact-msg').val('');
                 $('#btn-contact-us').attr('disabled', 'true');
-                $('.success').append('<div class="alert alert-success mb-3" style="width: 70%;margin: 0 auto">Email sent successfuly</div>');
+                $('.success').append('<div class="alert alert-success mt-3 text-center" style="width: 70%;margin: 0 auto">Email sent successfuly</div>');
             },
             complete: function(){
                 $('#loader-wrapper').hide();

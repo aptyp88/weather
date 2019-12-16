@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
+use App\Models\ContactUs;
 use App\Services\ContactUsService;
 
 class ContactUsController extends Controller
