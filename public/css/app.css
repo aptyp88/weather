@@ -11395,17 +11395,17 @@ ol {
   border-color: #eba134;
 }
 
-.tab-content .form-group .btn {
+.tab-content .form-group .btn-login {
   background-color: #eba134;
   border: none;
 }
 
-.tab-content .form-group .btn:active {
+.tab-content .form-group .btn-login:active {
   border: none;
   background-color: #eba134;
 }
 
-.tab-content .form-group .btn:hover {
+.tab-content .form-group .btn-login:hover {
   background-color: #ce6000;
   outline: none;
   box-shadow: none;
